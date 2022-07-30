@@ -17,11 +17,10 @@ class MyApp extends StatelessWidget {
           title: Text("Hello Flutter"),
         ),
         body: Center(
-          child: Text(
-            "Hi everyone",
-            style: TextStyle(fontSize: 30, color: Colors.black),
-          ),
-        ),
+            child: Image(
+          image: NetworkImage(
+              "https://external-preview.redd.it/wyDRIAmyLmDAswvwisGM2PIRtT68eTYidrcqGxK-JYk.jpg?auto=webp&s=31c81719ab260dd00e5125cef73b9a512bbc2839"),
+        )),
       ),
       theme: ThemeData(primarySwatch: Colors.pink),
     );
