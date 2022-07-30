@@ -17,7 +17,10 @@ class MyApp extends StatelessWidget {
           title: Text("Hello Flutter"),
         ),
         body: Center(
-          child: Text("Hi everyone"),
+          child: Text(
+            "Hi everyone",
+            style: TextStyle(fontSize: 30, color: Colors.black),
+          ),
         ),
       ),
       theme: ThemeData(primarySwatch: Colors.pink),
