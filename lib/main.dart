@@ -12,17 +12,32 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "My App",
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Hello Flutter"),
-        ),
-        body: Center(
-            child: Image(
-          image: NetworkImage(
-              "https://external-preview.redd.it/wyDRIAmyLmDAswvwisGM2PIRtT68eTYidrcqGxK-JYk.jpg?auto=webp&s=31c81719ab260dd00e5125cef73b9a512bbc2839"),
-        )),
-      ),
+      home: MyHomePage(),
       theme: ThemeData(primarySwatch: Colors.pink),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("โปรแกรมนับเลข"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [Text("Hi everyone"), Text("Hi Dart"), Text("Hi Flutter")],
+        ),
+      ),
     );
   }
 }
