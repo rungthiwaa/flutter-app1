@@ -1,5 +1,5 @@
 import 'dart:html';
-
+import 'ฺBingsuMenu.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -28,37 +28,35 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int number = 0; //การสร้าง state
-
+//กลุ่มข้อมูล
+  List<BingsuMenu> menu = [
+    BingsuMenu("Strawberry", "159", "assets/images/pic1.jpg"),
+    BingsuMenu("Mango", "159", "assets/images/pic2.jpg"),
+    BingsuMenu("Milk", "179", "assets/images/pic3.jpg"),
+    BingsuMenu("Green Tea", "149", "assets/images/pic5.jpg"),
+  ];
 //แสดงผลข้อมูล
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("เลือกเมนู"),
-      ),
-      body: Center(
-        child: ListView(
-          children: getData(20),
+        appBar: AppBar(
+          title: Text("เลือกเมนูบิงซู"),
         ),
-      ),
-    );
-  }
-
-//เตรียมข้อมูล
-  List<Widget> getData(int count) {
-    //กลุ่มข้อมูล Text Widget
-    List<Widget> data = [];
-    for (var i = 0; i < count; i++) {
-      var menu = ListTile(
-        title: Text(
-          "เมนูที่ ${i + 1}",
-          style: TextStyle(fontSize: 25),
-        ),
-        subtitle: Text("หัวข้อย่อยที่ ${i + 1}"),
-      );
-      data.add(menu);
-    }
-    return data;
+        body: ListView.builder(
+            itemCount: menu.length,
+            itemBuilder: (BuildContext context, int index) {
+              BingsuMenu bingsu = menu[index];
+              return ListTile(
+                leading: Image.asset(bingsu.img),
+                title: Text(
+                  bingsu.name,
+                  style: TextStyle(fontSize: 30),
+                ),
+                subtitle: Text("ราคา" + bingsu.price + "บาท"),
+                onTap: () {
+                  print("คุณเลือกเมนูอาหารชื่อว่า = " + bingsu.name);
+                },
+              );
+            }));
   }
 }
