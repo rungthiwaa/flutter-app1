@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -26,6 +28,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int number = 0; //การสร้าง state
+
+//แสดงผลข้อมูล
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,11 +38,20 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("โปรแกรมนับเลข"),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [Text("Hi everyone"), Text("Hi Dart"), Text("Hi Flutter")],
+        child: ListView(
+          children: getData(15),
         ),
       ),
     );
+  }
+
+//เตรียมข้อมูล
+  List<Widget> getData(int count) {
+    //กลุ่มข้อมูล Text Widget
+    List<Widget> data = [];
+    for (var i = 0; i < count; i++) {
+      data.add(Text("รายการที่ ${i + 1}"));
+    }
+    return data;
   }
 }
